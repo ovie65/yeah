@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Using Function</title>
+   
+    
+</head>
+
+
+
+
+<form id="registrationForm">
+  <div id="name1">
+      <label for="username" >Name</label>
+      <input id="username">
+      <span id="usernameError" class="error"></span>
+  </div>
+</br>
+  <div id="name2">
+      <label for="email" >email</label>
+      <input id="email" onchange="validateemail()">
+      <span id="emailError" class="error"></span>
+  </div>
+</br>
+  <div id="name3">
+      <label for="password" >password</label>
+      <input id="password">
+      <span id="passwordError" class="error"></span>
+  </div>
+</br>
+  
+  <button type="submit" id="goldbu">Create account</button>
+</form>
+
+<style>
+  .error{
+    color: red;
+  }
+</style>
+
+
+
+
+
+
+<script>
+
+  const form = document.getElementById("registrationForm");
+  const username = document.getElementById("username");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const usernameError = document.getElementById("usernameError");
+  const emailError = document.getElementById("emailError");
+  const passwordError = document.getElementById("passwordError");
+
+
+
+  
+  const emailformat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const passformat = /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&])[a-zA-Z0-9!@#\$%\^&]{5,15}$/;
+
+  function validateemail(){
+      if (!email.value) {
+                  emailError.textContent = "you must put the email";
+                  
+              } else if (!email.value.match(emailformat)) {
+                  emailError.textContent = "Email is not in the correct format";
+                  
+              } else {
+                  emailError.textContent = " valid email";
+                  emailError.style.color = "blue";
+              }
+  }
+  
+  form.addEventListener("submit", function(divine) {
+      
+      divine.preventDefault();
+      let voltage = true;
+
+      if (!username.value) {
+          usernameError.textContent = "name is required";
+          voltage = false;
+      } else {
+          usernameError.textContent = "Please fill the remaining form";
+          usernameError.style.color = "blue"
+      }
+
+      if (!email.value) {
+          emailError.textContent = "You must put a valid email name";
+          voltage = false;
+      } else if (!email.value.match(emailformat)) {
+          emailError.textContent = "Email is not in the correct format";
+          voltage = false;
+      } else {
+          emailError.textContent = " valid email";
+          emailError.style.color = "blue";
+      }
+
+      if (!password.value) {
+          passwordError.textContent = "please put a strong password";
+          voltage = false;
+      } else if (!password.value.match(passformat)) {
+          passwordError.textContent = "password must contain 1 uppercase, lowercase,and symbol character to be valid";
+          voltage= false;
+      } else {
+          passwordError.textContent = " password is okay";
+          passwordError.style.color = "blue";
+      }
+
+     
+      if (voltage) {
+          form.submit();
+      }
+  });
+</script>
+
+
+
+
+<style>
+  body{
+    background-color: rgb(31, 28, 28);
+}
+
+
+button{
+    color: red;
+    background: linear-gradient(90deg, rgb(95, 95, 99) 10%, rgb(245, 240, 240) 70%);
+    width: 150px;
+    height: 70px;
+    border-radius: 40px;
+    border: 2px groove rgb(75, 6, 6);
+    font-size: 20px;
+
+
+
+    button:hover{
+    color: black;
+    background: rgb(143, 12, 12);
+    border: 2px groove black;
+    box-shadow: none;
+}
+    
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
